@@ -5,6 +5,7 @@ import Navbar from './components/navbar.jsx';
 import Content from './components/content.jsx';
 import Footer from './components/footer.jsx';
 import Login from './components/login.jsx';
+import CalendarComponent from './components/calendar.jsx';
 import './App.css'
 
 const Dashboard = () => {
@@ -30,6 +31,9 @@ function App() {
             </Route>
             <Route path="/login" element={<Dashboard />}>
               <Route index element={<Login />} />
+            </Route>
+            <Route path="/calendar" element={<Dashboard />}>
+              <Route index element={<CalendarComponent />} />
             </Route>
           </Routes>
         </div>

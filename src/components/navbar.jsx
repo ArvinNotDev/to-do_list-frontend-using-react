@@ -40,6 +40,9 @@ const Navbar = () => {
           <li>
             <Link to="/to-do_list" className="navbar-link">To-Do List</Link>
           </li>
+          <li>
+            <Link to="/calendar" className="navbar-link">calendar</Link>
+          </li>
         </ul>
       </div>
     </nav>

@@ -1,0 +1,142 @@
+.calendar-container {
+    position: relative;
+    display: flex; /* Change to flex for proper alignment */
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #f0f4f8, #d9e7ff);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Make container full-width */
+    max-width: 600px; /* Limit maximum width for larger screens */
+    margin: auto; /* Center container */
+    overflow: hidden; /* Hide overflow to prevent clipping */
+  }
+  
+  h1 {
+    margin-bottom: 15px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    text-align: center;
+    font-size: 2rem; /* Adjusted font size */
+  }
+  
+  .fc {
+    width: 100%; /* Make calendar responsive */
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 0.9rem; /* Smaller text for compact view */
+    max-height: 70vh; /* Set a maximum height to make it responsive */
+    overflow-y: auto; /* Enable scrolling if content overflows */
+  }
+  
+  .fc-daygrid-event {
+    background-color: #007bff; /* Primary button color */
+    color: white;
+    border-radius: 5px;
+    padding: 3px; /* Reduced padding */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 0.8rem; /* Smaller font size for events */
+  }
+  
+  .fc-daygrid-day {
+    border: 1px solid #e0e0e0; /* Border color for days */
+  }
+  
+  .fc-toolbar {
+    background-color: #f0f4f8;
+    padding: 5px; /* Reduced padding */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between; /* Align toolbar items */
+    flex-wrap: wrap; /* Allow wrapping for small screens */
+  }
+  
+  .fc-toolbar button {
+    background-color: #007bff; /* Primary button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px; /* Reduced button padding */
+    cursor: pointer;
+    margin: 5px; /* Space between buttons */
+    transition: background-color 0.3s;
+    flex: 1; /* Allow buttons to grow equally */
+  }
+  
+  .fc-toolbar button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+  
+  .fc-toolbar-title {
+    font-weight: bold;
+    font-size: 1.5rem; /* Adjusted title font size */
+    color: #333;
+  }
+  
+  /* Media Queries for Smaller Screens */
+  @media (max-width: 768px) {
+    .calendar-container {
+      padding: 15px; /* Reduced padding */
+    }
+  
+    h1 {
+      font-size: 1.5rem; /* Smaller font size for headings */
+    }
+  
+    .fc {
+      font-size: 0.85rem; /* Slightly smaller text */
+    }
+  
+    .fc-toolbar {
+      flex-direction: column; /* Stack toolbar items vertically */
+      align-items: stretch; /* Stretch to full width */
+    }
+  
+    .fc-toolbar button {
+      width: 100%; /* Full-width buttons */
+      margin: 5px 0; /* Space between buttons */
+    }
+  }
+  
+  /* Support for 720p Resolution */
+  @media (max-width: 1280px) and (min-width: 720px) {
+    .calendar-container {
+      padding: 25px; /* Slightly more padding for better appearance */
+      max-width: 700px; /* Allow a wider maximum width */
+    }
+  
+    h1 {
+      font-size: 2.2rem; /* Adjust heading size */
+    }
+  
+    .fc {
+      font-size: 0.95rem; /* Slightly larger text */
+      max-height: 70vh; /* Keep the maximum height */
+    }
+  
+    .fc-toolbar-title {
+      font-size: 1.6rem; /* Adjust title font size */
+    }
+  
+    .fc-daygrid-event {
+      font-size: 0.9rem; /* Slightly larger event text */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.3rem; /* Further reduced font size for very small screens */
+    }
+  
+    .fc-toolbar-title {
+      font-size: 1.2rem; /* Smaller title font */
+    }
+  
+    .fc-daygrid-event {
+      font-size: 0.7rem; /* Even smaller font size for events */
+      padding: 2px; /* Further reduced padding */
+    }
+  }
+  
