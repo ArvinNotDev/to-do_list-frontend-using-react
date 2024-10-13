@@ -1,33 +1,45 @@
 .navbar {
-    background-color: #333;
-    color: white;
-    position:fixed;
-    top: 0;
-    width:100%;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  background-color: #1a1a2e; /* Darker and more modern shade */
+  color: white;
+  position:fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  padding: 15px 0; /* More spacing for a cleaner look */
 }
 
-  
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .navbar-menu {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-  }
-  
-  .navbar-link {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-  }
-  
-  .navbar-link:hover {
-    text-decoration: underline;
-  }
-  
+.navbar-container {
+  margin: 0 auto; /* Center the content */
+  max-width: 1200px; /* Set a max width for larger screens */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* More space between items */
+}
+
+.navbar-link {
+  color: white;
+  text-decoration: none;
+  font-size: 18px; /* Slightly larger for better readability */
+  font-weight: 500; /* Modern bold look */
+  transition: color 0.3s ease; /* Smooth hover transition */
+}
+
+.navbar-link:hover {
+  color: #f05454; /* Highlight color */
+  text-decoration: none; /* No underline for a cleaner look */
+}
+
+.navbar-logo {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 2px; /* Add some letter spacing for a modern look */
+  color: #f05454; /* Same highlight color as hover */
+}

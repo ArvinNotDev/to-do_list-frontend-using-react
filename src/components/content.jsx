@@ -3,8 +3,13 @@ import React from 'react';
 const Content = () => {
   return (
     <div className="content">
-      <h1>Welcome to the Dashboard</h1>
-      <p>This is the main content area.</p>
+      <h1>To-Do List Dashboard</h1>
+      <p>Manage your tasks effectively by adding, updating, or marking them as completed.</p>
+      <ul>
+        <li>Add new tasks to stay organized</li>
+        <li>View and manage your current tasks</li>
+        <li>Mark tasks as completed when you're done</li>
+      </ul>
     </div>
   );
 };

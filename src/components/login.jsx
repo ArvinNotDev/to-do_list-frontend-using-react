@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import './Login.css';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Email:', email, 'Password:', password);
+    document.getElementById("username").value = ""
+    document.getElementById("password").value = ""
+    console.log('Email:', username,'\n', 'Password:', password);
     // login logic
   };
 
@@ -16,11 +18,12 @@ const Login = () => {
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Email:</label>
+          <label>username:</label>
           <input 
-            type="email" 
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
+            type="username" 
+            value={username}
+            id='username' 
+            onChange={(e) => setUsername(e.target.value)} 
             required 
           />
         </div>
@@ -28,7 +31,8 @@ const Login = () => {
           <label>Password:</label>
           <input 
             type="password" 
-            value={password} 
+            value={password}
+            id='password' 
             onChange={(e) => setPassword(e.target.value)} 
             required 
           />
