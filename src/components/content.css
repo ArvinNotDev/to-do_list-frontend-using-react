@@ -1,0 +1,61 @@
+.content {
+    background-color: #f8f9fa; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Spacing inside the container */
+    margin: 20px; /* Spacing outside the container */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 600px; /* Limit width for better readability */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+  }
+  
+  .content h1 {
+    font-size: 2.5rem; /* Large title size */
+    color: #343a40; /* Dark text color */
+    margin-bottom: 10px; /* Space below the title */
+  }
+  
+  .content p {
+    font-size: 1.2rem; /* Slightly larger font size */
+    color: #495057; /* Medium dark text color */
+    line-height: 1.6; /* Spacing between lines */
+    margin-bottom: 20px; /* Space below the paragraph */
+  }
+  
+  .content ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+  }
+  
+  .content li {
+    background-color: #a0644d; /* Light gray for list items */
+    padding: 10px; /* Space inside list items */
+    border-radius: 4px; /* Rounded corners */
+    margin-bottom: 10px; /* Space between list items */
+    font-size: 1rem; /* Standard font size */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  .content li:hover {
+    background-color: #ffae8e; /* Darker gray on hover */
+    cursor:default;
+  }
+  
+  @media (max-width: 768px) {
+    .content {
+      padding: 15px; /* Adjust padding for smaller screens */
+      margin: 10px; /* Adjust margin for smaller screens */
+    }
+  
+    .content h1 {
+      font-size: 2rem; /* Reduce title size */
+    }
+  
+    .content p {
+      font-size: 1rem; /* Reduce paragraph size */
+    }
+  
+    .content li {
+      font-size: 0.9rem; /* Reduce list item size */
+    }
+  }
+  

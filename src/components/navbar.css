@@ -1,45 +1,49 @@
 .navbar {
-  background-color: #1a1a2e; /* Darker and more modern shade */
+  background-color: #753001;
   color: white;
-  position:fixed;
+  position:absolute;
   top: 0;
   right: 0;
   width: 100%;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow */
-  padding: 15px 0; /* More spacing for a cleaner look */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+  padding: 15px 0;
 }
 
 .navbar-container {
-  margin: 0 auto; /* Center the content */
-  max-width: 1200px; /* Set a max width for larger screens */
+  margin: 0 auto;
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-right: 10px;
 }
 
 .navbar-menu {
   list-style: none;
   display: flex;
-  gap: 20px; /* More space between items */
+  gap: 20px;
 }
 
 .navbar-link {
+  padding: 10px;
+  margin-left: 5px;
   color: white;
   text-decoration: none;
-  font-size: 18px; /* Slightly larger for better readability */
-  font-weight: 500; /* Modern bold look */
-  transition: color 0.3s ease; /* Smooth hover transition */
+  font-size: 18px; 
+  font-weight: 500;
+  text-decoration: underline 0.15em rgba(0, 0, 0, 0);
+  transition: text-decoration-color 300ms;
 }
 
 .navbar-link:hover {
-  color: #f05454; /* Highlight color */
-  text-decoration: none; /* No underline for a cleaner look */
+  color: rgb(231, 231, 231);
+  text-decoration-color: rgb(255, 174, 0);
 }
 
 .navbar-logo {
   font-size: 24px;
   font-weight: bold;
-  letter-spacing: 2px; /* Add some letter spacing for a modern look */
-  color: #f05454; /* Same highlight color as hover */
+  letter-spacing: 2px;
+  color: #f05454;
 }
