@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './components/navbar.jsx';
@@ -6,8 +5,9 @@ import Content from './components/content.jsx';
 import Footer from './components/footer.jsx';
 import Login from './components/login.jsx';
 import CalendarComponent from './components/calendar.jsx';
-import TaskList from './components/todoList.jsx'
-import './App.css'
+import TaskList from './components/todoList.jsx';
+import TaskDetail from './components/TaskDetail.jsx';  // Don't forget to import this!
+import './App.css';
 
 const Dashboard = () => {
   return (
@@ -19,9 +19,7 @@ const Dashboard = () => {
   );
 };
 
-
 function App() {
-
   return (
     <>
       <Router>
@@ -29,21 +27,16 @@ function App() {
           <Routes>
             <Route path="/" element={<Dashboard />}>
               <Route index element={<Content />} />
-            </Route>
-            <Route path="/login" element={<Dashboard />}>
-              <Route index element={<Login />} />
-            </Route>
-            <Route path="/calendar" element={<Dashboard />}>
-              <Route index element={<CalendarComponent />} />
-            </Route>
-            <Route path="/to-do_list" element={<Dashboard />}>
-              <Route index element={<TaskList />} />
+              <Route path="login" element={<Login />} />
+              <Route path="calendar" element={<CalendarComponent />} />
+              <Route path="to-do_list" element={<TaskList />} />
+              <Route path="tasks/:id" element={<TaskDetail />} /> {/* Display TaskDetail directly */}
             </Route>
           </Routes>
         </div>
       </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
