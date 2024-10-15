@@ -37,6 +37,8 @@ h1 {
   width: 100%;
   padding: 10px;
   font-size: 16px;
+  position: relative;
+  right: 12px;
   color: #333333;
   border: 1px solid #ddd;
   border-radius: 8px;

@@ -16,32 +16,61 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-
+    const email = loginSignup ? null : document.getElementById("email").value; // Get email only if signing up
+  
     try {
-      const response = await fetch('http://127.0.0.1:8000/accounts/login/', {
+      const response = await fetch(loginSignup 
+        ? 'http://127.0.0.1:8000/accounts/login/' 
+        : 'http://127.0.0.1:8000/accounts/user/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ username, password, ...(email && { email }) }), // Include email only if signing up
       });
-
-      if (!response.ok) throw new Error(`Error: ${response.statusText}`);
-
+  
+      if (!response.ok) {
+        const errorData = await response.json();
+        let errorMessage = "Error: ";
+  
+        // Collect specific error messages based on the response from the server
+        if (errorData.username) {
+          errorMessage += `Username: ${errorData.username.join(', ')}. `;
+        }
+        if (errorData.password) {
+          errorMessage += `Password: ${errorData.password.join(', ')}. `;
+        }
+        if (errorData.email) {
+          errorMessage += `Email: ${errorData.email.join(', ')}. `;
+        }
+  
+        throw new Error(errorMessage.trim()); // Throw the constructed error message
+      }
+  
       const result = await response.json();
       localStorage.setItem('access', result.access);
-
+  
+      // Clear inputs
       document.getElementById("username").value = "";
       document.getElementById("password").value = "";
-      window.location.href = "/"
+      if (!loginSignup) {
+        document.getElementById("email").value = ""; // Clear email input on successful signup
+      }
+  
+      // Redirect to home
+      window.location.href = "/";
     } catch (error) {
-      console.error('Error logging in...', error);
-      alert("Invalid credentials");
+      console.error('Error:', error);
+      alert(loginSignup ? "Invalid login credentials" : error.message || "Sign up failed"); // Different alert for login/signup
       document.getElementById("username").value = "";
       document.getElementById("password").value = "";
+      if (!loginSignup) {
+        document.getElementById("email").value = ""; // Clear email input on error
+      }
     }
   };
+  
 
   return (
     <div className="login-container">
