@@ -76,9 +76,11 @@ h1 {
 .submit-btn:hover {
   background-color: #357abd;
 }
-
+#errors{
+  color:red;
+}
 @media (max-width: 400px) {
   .login-container {
-    width: 90%;
+    width: 280px;
   }
 }

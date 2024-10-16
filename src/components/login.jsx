@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './login.css';
-import CheckLogin from './checkLogin';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -19,22 +18,22 @@ const Login = () => {
   
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-    const email = loginSignup ? null : document.getElementById("email").value; // Get email only if signing up
+    const email = loginSignup ? null : document.getElementById("email").value;
   
     try {
-      const response = await fetch(loginSignup 
-        ? 'http://127.0.0.1:8000/accounts/login/' 
+      const response = await fetch(loginSignup
+        ? 'http://127.0.0.1:8000/accounts/login/'
         : 'http://127.0.0.1:8000/accounts/user/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password, ...(email && { email }) }), // Include email only if signing up
+        body: JSON.stringify({ username, password, ...(email && { email }) }),
       });
   
       if (!response.ok) {
         const errorData = await response.json();
         let errorMessage = "Error: ";
   
-        // Collect specific error messages based on the response from the server
+        // Collect specific error messages from the backend response
         if (errorData.username) {
           errorMessage += `Username: ${errorData.username.join(', ')}. `;
         }
@@ -47,7 +46,7 @@ const Login = () => {
   
         throw new Error(errorMessage.trim()); // Throw the constructed error message
       }
-  
+
       const result = await response.json();
       localStorage.setItem('access', result.access);
   
@@ -55,19 +54,14 @@ const Login = () => {
       document.getElementById("username").value = "";
       document.getElementById("password").value = "";
       if (!loginSignup) {
-        document.getElementById("email").value = ""; // Clear email input on successful signup
+        document.getElementById("email").value = "";
       }
   
       // Redirect to home
       window.location.href = "/";
     } catch (error) {
       console.error('Error:', error);
-      alert(loginSignup ? "Invalid login credentials" : error.message || "Sign up failed"); // Different alert for login/signup
-      document.getElementById("username").value = "";
-      document.getElementById("password").value = "";
-      if (!loginSignup) {
-        document.getElementById("email").value = ""; // Clear email input on error
-      }
+      document.getElementById("errors").innerText = error.message || "An error occurred. Please try again.";
     }
   };
   
@@ -109,6 +103,7 @@ const Login = () => {
               />
             </div>
           )}
+          <p id='errors'></p>
           <a className="toggle-link" onClick={swapLoginMethod}>
             {loginSignup ? "Switch to Sign Up" : "Switch to Login"}
           </a>
