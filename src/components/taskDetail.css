@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  h1, h2 {
+    color: #4a90e2;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    text-align: center;
+  }
+  
+  h2 {
+    margin-top: 30px;
+    font-size: 22px;
+  }
+  
+  #form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    max-width: 600px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  form div {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  #input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    color: #333;
+    border-radius: 4px;
+    position: relative;
+    right: 10px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  input[type="text"]:focus,
+  input[type="date"]:focus,
+  select:focus {
+    border-color: #4a90e2;
+  }
+  
+  button[type="submit"] {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #357ABD;
+  }
+  
+  /* Error and success messages */
+  div[style*="color: green"],
+  div[style*="color: red"] {
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  div[style*="color: green"] {
+    background-color: #dff0d8;
+    border: 1px solid #4cae4c;
+  }
+  
+  div[style*="color: red"] {
+    background-color: #f2dede;
+    border: 1px solid #ebccd1;
+  }
+  
+  /* Task details section */
+  .task-details {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-details p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 600px) {
+    form, .task-details {
+      padding: 15px;
+    }
+  
+    h1 {
+      font-size: 24px;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  }
+  
