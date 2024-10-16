@@ -5,6 +5,8 @@ import './todoList.css';
 const TaskList = () => {
   const [tasks, setTasks] = useState([]);
   const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [dueDate, setDueDate] = useState('');
   const [nextPage, setNextPage] = useState(null);
   const [prevPage, setPrevPage] = useState(null);
   const [currentPage, setCurrentPage] = useState('http://localhost:8000/to-do-list/tasks/');
@@ -21,27 +23,26 @@ const TaskList = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-  
+
         if (!response.ok) {
           throw new Error('Failed to fetch tasks.');
         }
-  
+
         const data = await response.json();
-        setTasks(data.results); // Replace the current tasks with new page data
-        setNextPage(data.next); // 'next' holds the next page URL
-        setPrevPage(data.previous); // 'previous' holds the previous page URL
+        setTasks(data.results);
+        setNextPage(data.next);
+        setPrevPage(data.previous);
       } catch (error) {
         console.error('Error fetching tasks:', error);
       }
     };
-  
-    fetchTasks(currentPage); // Fetch tasks based on the current page
+
+    fetchTasks(currentPage);
   }, [currentPage]);
-  
 
   const handleAddTask = async (e) => {
     e.preventDefault();
-    if (!title) return;
+    if (!title || !description || !dueDate) return;
 
     try {
       const token = localStorage.getItem('access');
@@ -51,7 +52,7 @@ const TaskList = () => {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ title }),
+        body: JSON.stringify({ title, description, due_date: dueDate }),
       });
 
       if (!response.ok) {
@@ -61,7 +62,9 @@ const TaskList = () => {
       const newTask = await response.json();
       setTasks([...tasks, newTask]);
       setTitle('');
-      window.location.reload()
+      setDescription('');
+      setDueDate('');
+      window.location.reload();
     } catch (error) {
       console.error('Error adding task:', error);
     }
@@ -104,7 +107,6 @@ const TaskList = () => {
         throw new Error('Failed to delete task.');
       }
 
-      // Remove the deleted task from the state
       setTasks(tasks.filter(task => task.id !== taskId));
     } catch (error) {
       console.error('Error deleting task:', error);
@@ -116,7 +118,7 @@ const TaskList = () => {
   };
 
   return (
-    <div>
+    <div id="white-box">
       <h1>To-Do List</h1>
       <form onSubmit={handleAddTask}>
         <input
@@ -125,14 +127,25 @@ const TaskList = () => {
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Add new task"
         />
+        <input
+          type="text"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          placeholder="Task description"
+        />
+        <input
+          type="date"
+          value={dueDate}
+          onChange={(e) => setDueDate(e.target.value)}
+        />
         <button type="submit">Add</button>
       </form>
       <ul>
         {tasks.map((task) => (
           <div key={task.id}>
             <div id="tasks" className={task.status === 2 ? 'completed' : ''} onClick={() => handleTaskClick(task)}>
-              <li><span>{task.title}</span></li>
-              <span>{task.description}</span>
+              <li><span>{task.title} | </span></li>
+              <span>| Due: {task.due_date}</span>
 
               <button className="complete" onClick={(e) => { e.stopPropagation(); handleCompleteTask(task, 2); }}>
                 Check

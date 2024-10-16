@@ -12,7 +12,7 @@ body {
 h1 {
   text-align: center;
   margin-bottom: 20px;
-  color: #fff3f3;
+  color: #000000;
 }
 
 input[type="text"] {
@@ -45,9 +45,9 @@ ul {
 #tasks {
   display: flex;
   align-items: center;
-  color: black;
+  color: rgb(255, 255, 255);
   justify-content: space-between;
-  background-color: #5eb3c2;
+  background-color: #083880;
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 15px;
@@ -100,4 +100,10 @@ button.complete:hover, button#uncheck:hover {
 
 .pagination button:hover {
   background-color: #0056b3;
+}
+#white-box{
+  background-color: #ddd;
+  border-radius: 7px;
+  min-width: 470px;
+  min-height: 150px;
 }
