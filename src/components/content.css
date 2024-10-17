@@ -3,6 +3,7 @@
     border-radius: 8px; /* Rounded corners */
     padding: 20px; /* Spacing inside the container */
     margin: 20px; /* Spacing outside the container */
+    color:#ffffff;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     max-width: 600px; /* Limit width for better readability */
     transition: all 0.3s ease; /* Smooth transition for hover effects */

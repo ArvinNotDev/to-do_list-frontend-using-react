@@ -7,7 +7,9 @@ import Login from './components/login.jsx';
 import CalendarComponent from './components/calendar.jsx';
 import TaskList from './components/todoList.jsx';
 import TaskDetail from './components/TaskDetail.jsx';  // Don't forget to import this!
+import CategoryList from './components/category.jsx';
 import './App.css';
+
 
 const Dashboard = () => {
   return (
@@ -30,7 +32,8 @@ function App() {
               <Route path="login" element={<Login />} />
               <Route path="calendar" element={<CalendarComponent />} />
               <Route path="to-do_list" element={<TaskList />} />
-              <Route path="tasks/:id" element={<TaskDetail />} /> {/* Display TaskDetail directly */}
+              <Route path="tasks/:id" element={<TaskDetail />} />
+              <Route path="categories" element={<CategoryList />} />
             </Route>
           </Routes>
         </div>
